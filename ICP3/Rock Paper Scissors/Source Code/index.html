@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-size: 24px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <script type="text/javascript">
+        function getComputerInput(){
+            var text="";
+            var input=Math.floor(Math.random() * 3)
+            if(input==1){
+                text="rock";
+            }
+            else if(input==2){
+                text="paper";
+            }
+            else{
+                text="scissors";
+            }
+            return text;
+        }
+        function Play(userinput){
+            console.log('check');
+            var computerinput=getComputerInput();
+            var result=determineWinner(userinput,computerinput);
+            document.getElementById("uchoice").innerText=userinput;
+            document.getElementById("cchoice").innerText=computerinput;
+            document.getElementById("result").innerText=result;
+
+        }
+
+        function determineWinner(userChoice,computerChoice) {
+            document.getElementById("result").style="color:green";
+            if (userChoice === computerChoice) {
+                return 'It\'s a tie!';
+            } else if (userChoice === 'rock') {
+                if (computerChoice === 'paper') {
+                    document.getElementById("result").style="color:red";
+                    return 'Computer wins!';
+                } else {
+                    return 'You win!';
+                }
+            } else if (userChoice === 'paper'){
+                if (computerChoice === 'scissors') {
+                    document.getElementById("result").style="color:red";
+                    return 'Computer wins!';
+                }else {
+                    return 'You win!';
+                }
+            } else if (userChoice === 'scissors') {
+                if (computerChoice === 'rock') {
+                    document.getElementById("result").style="color:red";
+                    return 'Computer wins!';
+                } else {
+                    return 'You win!';
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="Play('rock')" value="Rock">
+<br><br>
+<input type="button" onclick="Play('paper')" value="Paper">
+<br><br>
+<input type="button" onclick="Play('scissors')" value="Scissor">
+<br><br>
+
+Your Choice: <label id="uchoice"></label>
+<br><br>
+Computer Choice: <label id="cchoice"></label>
+<br><br>
+Result: <label id="result"></label>
+</body>
+</html>
