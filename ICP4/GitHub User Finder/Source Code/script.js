@@ -2,23 +2,22 @@ function getGithubInfo(user) {
     //1. Create an instance of XMLHttpRequest class and send a GET request using it.
     // The function should finally return the object(it now contains the response!)
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.github.com/users/'+user, true);
+    var xmlhr = new XMLHttpRequest();
+    xmlhr.open('GET', 'https://api.github.com/users/'+user, true);
 
-    xhr.onload = function () {
-        // Request finished. Do processing here.
-        console.log(xhr);
-        //if the response is successful show the user's details
-        if (xhr.status == 200) {
-            showUser(JSON.parse(xhr.responseText));
+    xmlhr.onload = function () {
+        console.log(xmlhr);
+        //If the response is successful show user details
+        if (xmlhr.status == 200) {
+            showUser(JSON.parse(xmlhr.responseText));
             //else display suitable message
         } else {
             noSuchUser(user);
         }
     };
 
-    xhr.send(null);
-    return xhr;
+    xmlhr.send(null);
+    return xmlhr;
 }
 
 function showUser(user) {
@@ -26,11 +25,11 @@ function showUser(user) {
     document.getElementById('profile').style="display:block";    //2. set the contents of the h2 and the two div elements in the div '#profile' with the user content
     console.log(user);
     document.getElementById('imgavg').src=user.avatar_url;
-    document.getElementById('txtname').innerText=user.name;
-    document.getElementById('txtid').innerText=user.id;
-    document.getElementById('txturl').href=user.url;
-    document.getElementById('txturl').innerText=user.html_url;
-    document.getElementById('txtscore').innerText=user.bio;
+    document.getElementById('textname').innerText=user.name;
+    document.getElementById('textid').innerText=user.id;
+    document.getElementById('texturl').href=user.url;
+    document.getElementById('texturl').innerText=user.html_url;
+    document.getElementById('textscore').innerText=user.bio;
 
 }
 
