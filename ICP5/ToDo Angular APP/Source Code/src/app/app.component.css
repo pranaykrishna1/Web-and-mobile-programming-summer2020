@@ -1,0 +1,52 @@
+body{
+  padding: 0;
+  margin: 0;
+
+}
+form{
+  max-width: 50em;
+  margin: 4em auto;
+  position: relative;
+  background: #f4f4f4;
+  padding: 2em 3em;
+  overflow: hidden;
+}
+form h1{
+  font-family: "cursive", serif;
+  color: indianred;
+}
+form input[type=text]::placeholder{
+  font-family: "monospace", serif;
+  color:#666;
+}
+form .data{
+  margin-top: 1em;
+}
+form .data li{
+  background: #fff;
+  border-left: 4px solid greenyellow;
+  padding: 1em;
+  margin: 1em auto;
+  color: #666;
+  font-family: "monospace", sans-serif;
+}
+form .data li i{
+  float: right;
+  color: #888;
+  cursor: pointer;
+}
+
+form .input-group-text i{
+  font-size: 2em;
+}
+form .form-control{
+  height: 3em;
+  font-family: "monospace", sans-serif;
+}
+form .form-control:focus {
+  box-shadow: 0;
+}
+
+.hover-class{
+  cursor: pointer;
+}
